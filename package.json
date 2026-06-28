@@ -1,0 +1,126 @@
+{
+  "name": "pulsar-ide-ruby",
+  "main": "./lib/main",
+  "version": "0.0.0",
+  "description": "Ruby language support for Pulsar via ruby-lsp",
+  "keywords": [
+    "ide",
+    "ruby",
+    "lsp"
+  ],
+  "activationHooks": [
+    "source.ruby:root-scope-used"
+  ],
+  "repository": "https://github.com/savetheclocktower/pulsar-ide-ruby",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "configSchema": {
+    "serverSettings": {
+      "type": "object",
+      "order": 2,
+      "name": "Server Settings",
+      "properties": {
+        "formatter": {
+          "name": "Formatter",
+          "description": "Which code formatter to use. Leave on `auto` if you’re unsure. This is a free text field because `ruby-lsp` add-ons can add support for arbitrary formatters.",
+          "type": "string",
+          "default": "auto",
+          "order": 1
+        },
+        "linters": {
+          "name": "Linters",
+          "description": "Which linters to use. Leave on `standard` if you're unsure. You can add `rubocop` here if it is present in your project, or `rubocop_internal` if you want to use the default ruby-lsp configuration for Rubocop.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": ["standard"],
+          "order": 2
+        }
+      }
+    }
+  },
+  "providedServices": {
+    "intentions:list": {
+      "versions": {
+        "1.0.0": "provideIntentionsList"
+      }
+    },
+    "symbol.provider": {
+      "description": "Allows external sources to suggest symbols for a given file or project.",
+      "versions": {
+        "1.0.0": "provideSymbols"
+      }
+    },
+    "autocomplete.provider": {
+      "versions": {
+        "4.0.0": "provideAutocomplete"
+      }
+    },
+    "code-actions": {
+      "versions": {
+        "0.1.0": "provideCodeActions"
+      }
+    },
+    "code-format.range": {
+      "versions": {
+        "0.1.0": "provideCodeFormat"
+      }
+    },
+    "call-hierarchy": {
+      "versions": {
+        "0.1.0": "provideCallHierarchy"
+      }
+    },
+    "code-highlight": {
+      "versions": {
+        "0.1.0": "provideCodeHighlight"
+      }
+    },
+    "definitions": {
+      "versions": {
+        "0.1.0": "provideDefinitions"
+      }
+    },
+    "find-references": {
+      "versions": {
+        "0.1.0": "provideFindReferences"
+      }
+    },
+    "outline-view": {
+      "versions": {
+        "0.1.0": "provideOutlines"
+      }
+    }
+  },
+  "consumedServices": {
+    "linter-indie": {
+      "versions": {
+        "2.0.0": "consumeLinterV2"
+      }
+    },
+    "atom-ide-busy-signal": {
+      "versions": {
+        "0.1.0": "consumeBusySignal"
+      }
+    },
+    "datatip": {
+      "versions": {
+        "0.1.0": "consumeDatatip"
+      }
+    },
+    "signature-help": {
+      "versions": {
+        "0.1.0": "consumeSignatureHelp"
+      }
+    }
+  },
+  "dependencies": {
+    "@savetheclocktower/atom-languageclient": "^1.17.19"
+  },
+  "devDependencies": {
+    "@types/atom": "npm:@pulsar-edit/types@^1.132.0"
+  }
+}
