@@ -95,14 +95,14 @@
       "versions": {
         "0.1.0": "provideOutlines"
       }
+    },
+    "linter": {
+      "versions": {
+        "2.0.0": "provideLinter"
+      }
     }
   },
   "consumedServices": {
-    "linter-indie": {
-      "versions": {
-        "2.0.0": "consumeLinterV2"
-      }
-    },
     "atom-ide-busy-signal": {
       "versions": {
         "0.1.0": "consumeBusySignal"
@@ -120,7 +120,7 @@
     }
   },
   "dependencies": {
-    "@savetheclocktower/atom-languageclient": "^1.17.19"
+    "@savetheclocktower/atom-languageclient": "^1.17.20"
   },
   "devDependencies": {
     "@types/atom": "npm:@pulsar-edit/types@^1.132.0"
