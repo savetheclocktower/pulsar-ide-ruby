@@ -11,13 +11,13 @@ Known to work:
 * [x] Code formatting ([`pulsar-code-format`](https://packages.pulsar-edit.dev/packages/pulsar-code-format); see below)
 * [x] Hover tooltip support (`pulsar-hover`)
 * [x] Autocompletion (`autocomplete-plus`; not yet perfect)
-* [ ] Diagnostics (`linter` — [not yet working](https://github.com/savetheclocktower/atom-languageclient/issues/7))
+* [x] Diagnostics (`linter` — file-wide linting on save)
 
 ## Installation
 
 [Follow these instructions](https://shopify.github.io/ruby-lsp/#with-other-editors) to install `ruby-lsp`. It should not be added to your project’s `Gemfile` [for the reasons explained here](https://shopify.github.io/ruby-lsp/composed-bundle.html).
 
-You may also install `rubocop` and `syntax_tree` for enhanced support (not sure offhand whether they must be installed globally or within your project).
+You may also install `rubocop` and `syntax_tree` for enhanced support. (I believe, but am not certain, that they need to be installed within your project rather than globally.)
 
 ## Settings
 
@@ -27,4 +27,4 @@ The formatter to use with `pulsar-code-format` (or `atom-ide-code-format`). Defa
 
 ### Linters
 
-The set of linters to use. This maps directly to a Ruby LSP setting, but linter support is not yet working; stand by!
+The set of linters to use. This maps directly to a `ruby-lsp` setting. If you’ve got Rubocop set up in your project, add either `rubocop` (for Rubocop’s built-in `ruby-lsp` add-on) or `rubocop_internal` (for `ruby-lsp`’s own Rubocop adapter). The linter will respect a `.rubocop.yml` if one is present in the package root.
